@@ -1,5 +1,5 @@
 {
-  "name": "words",
+  "name": "@woyoutlz/words",
   "version": "0.0.3",
   "description": "",
   "main": "index.js",
@@ -11,5 +11,5 @@
   "dependencies": {
     "lodash": "^4.17.15"
   },
-  "gitHead": "4f34e850da7aa910499cf9fc25690761ec01919d"
+  "gitHead": "6e7aa41ef462147019319d36382a6eb10dad9191"
 }
