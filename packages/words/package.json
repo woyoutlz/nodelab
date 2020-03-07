@@ -9,7 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "level": "^6.0.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "pouchdb": "^7.2.1",
+    "pouchdb-find": "^7.2.1"
   },
-  "gitHead": "6e7aa41ef462147019319d36382a6eb10dad9191"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "4f9f493cd8e8376f4242215611db69b27d35bb2f"
 }
