@@ -10,7 +10,7 @@
     },
     "bootstrap": {
       "ignore": "component-*",
-      "npmClientArgs": ["--no-package-lock","--hoist"]
+      "npmClientArgs": ["--no-package-lock"]
     }
   },
   "packages": ["packages/*"]
