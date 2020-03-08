@@ -28,6 +28,9 @@ function more(n){
 }
 let commandObj = {
     n:newWord,
+    q:function(){
+        process.exit(0)
+    },
     1:more(0),
     2:more(1),
     3:more(2),
@@ -59,3 +62,5 @@ for (let key of all){
 vorpal
 .delimiter('myapp$')
 .show();
+
+vorpal.exec('n');
