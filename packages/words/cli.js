@@ -1,29 +1,44 @@
 const vorpal = require('vorpal')()
 const {
     findSome,
-    learned
+    learned,
+    reviewed
 } = require("./word")
 let _ = require('lodash')
 let learnedWords = []
 async function showword(word){
-    console.log(word.headWord)
+    console.log(word.headWord,word.repeat)
     let trans = _.get(word,"content.word.content.trans")
+    let spoken = _.get(word,"content.word.content.usphone")
+    let sentences = _.get(word,"content.word.content.sentence.sentences")
+    console.log("美式:",spoken)
     for(let tran of trans){
       console.log(tran.pos,tran.tranCn)
     }
+    for(let s of sentences){
+        console.log(s.sContent)
+        console.log(s.sCn)
+    }
 }
 async function newWord(){
+    await reviewed(learnedWords)
     let words = await findSome({learned:{$exists:false}},1)
     let word = words[0]
     console.log("try learn...")
     await showword(word)
-    learnedWords = await findSome({learned:true},5)
+    learnedWords = await findSome({learned:true,repeat:{$exists:true}},5,["repeat"])
     console.log(("try guess...",learnedWords.map(i=>i.headWord)))
     await learned(word.headWord)
+    // console.log(learnedWords.map(i=>i.repeat))
 }
 function more(n){
     return async function (){
-       await showword(learnedWords[n])
+       let wordReview = learnedWords[n]
+       if (!wordReview.repeat){
+        wordReview.repeat = 0
+       }
+       wordReview.repeat = wordReview.repeat-1
+       await showword(wordReview)
     }
 }
 let commandObj = {
@@ -53,8 +68,7 @@ for (let key of all){
             callback()
             return
         }
-        let s =  await commandObj[key](args.args)
-        console.log(s)
+        await commandObj[key](args.args)
         callback();
     })
 }
