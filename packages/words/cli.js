@@ -7,7 +7,7 @@ const {
 let _ = require('lodash')
 let learnedWords = []
 async function showword(word){
-    console.log(word.headWord,word.repeat)
+    console.log([word.headWord])
     let trans = _.get(word,"content.word.content.trans")
     let spoken = _.get(word,"content.word.content.usphone")
     let sentences = _.get(word,"content.word.content.sentence.sentences")
@@ -26,7 +26,8 @@ async function newWord(){
     let word = words[0]
     console.log("try learn...")
     await showword(word)
-    learnedWords = await findSome({learned:true,repeat:{$exists:true}},5,["repeat"])
+    let learnedWordsMore = await findSome({learned:true,repeat:{$exists:true}},10,["repeat"])
+    learnedWords = _.shuffle(learnedWordsMore).slice(0,5)
     console.log(("try guess...",learnedWords.map(i=>i.headWord)))
     await learned(word.headWord)
     // console.log(learnedWords.map(i=>i.repeat))
