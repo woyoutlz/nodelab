@@ -1,0 +1,17 @@
+0 silly argv { _: [ 'bootstrap' ],
+0 silly argv   lernaVersion: '3.20.2',
+0 silly argv   '$0':
+0 silly argv    'C:\\Users\\luguo\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js' }
+1 notice cli v3.20.2
+2 verbose rootPath D:\projects\node
+3 notice filter excluding "component-*"
+4 info filter [ '!component-*' ]
+5 error TypeError: Cannot read property 'split' of undefined
+5 error     at Minimatch.match (D:\projects\node\node_modules\minimatch\minimatch.js:713:11)
+5 error     at D:\projects\node\node_modules\minimatch\minimatch.js:691:15
+5 error     at Array.filter (<anonymous>)
+5 error     at Function.minimatch.match (D:\projects\node\node_modules\minimatch\minimatch.js:690:15)
+5 error     at patterns.reduce (D:\projects\node\node_modules\multimatch\index.js:23:33)
+5 error     at Array.reduce (<anonymous>)
+5 error     at module.exports (D:\projects\node\node_modules\multimatch\index.js:15:18)
+5 error     at filterPackages (D:\projects\node\node_modules\@lerna\filter-packages\filter-packages.js:45:28)
