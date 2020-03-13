@@ -68,7 +68,7 @@ async function learned(word){
   db.put(x)
   console.log("learned",word)
 }
-main()
+// main()
 //   db.get('mittens').then(function (doc) {
 //     console.log(doc);
 //   });
