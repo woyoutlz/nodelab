@@ -16,6 +16,7 @@
     "moment": "^2.24.0",
     "pouchdb": "^7.2.1",
     "pouchdb-find": "^7.2.1",
+    "v-hotkey": "^0.8.0",
     "vorpal": "^1.12.0"
   },
   "publishConfig": {

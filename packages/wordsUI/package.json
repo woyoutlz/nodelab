@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/woyoutlz/nodelab/issues"
+  },
+  "dependencies": {
+    "v-hotkey": "^0.8.0"
   }
 }

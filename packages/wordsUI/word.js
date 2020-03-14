@@ -40,13 +40,19 @@ export async function reviewed(words){
         db.put(word)
     }
 }
-export function importDB(){
-  for (let doc of kaoyan){
-    doc._id = doc.headWord
-    db.post(doc)
-  }
+export function initDB(){
   db.createIndex({
     index: {fields: ['repeat']}
   });
-  // console.log("imported")
+  db.get('advantage').then(function(doc) {
+    return doc
+  }).then(function () {
+    // handle result
+  }).catch(function () {
+    for (let doc of kaoyan){
+      doc._id = doc.headWord
+      db.put(doc)
+    }
+    alert("imported")
+  });
 }
