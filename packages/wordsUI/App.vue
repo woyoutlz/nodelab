@@ -48,7 +48,11 @@ export default {
         'w': this.learned,
         'd':this.pickright,
         'a':this.pickleft,
-        's':this.fucked
+        's':this.fucked,
+         'up': this.learned,
+         'right':this.pickright,
+        'left':this.pickleft,
+        'down':this.fucked,
       }
     }
   },
